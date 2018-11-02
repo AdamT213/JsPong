@@ -47,11 +47,7 @@ function Paddle(x, y, width, height) {
 }
 
 Paddle.prototype.render = function () {
-<<<<<<< HEAD
   context.fillStyle = "#00ffff";
-=======
-  context.fillStyle = "#0000FF";
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
   context.fillRect(this.x, this.y, this.width, this.height);
 };
 
@@ -71,33 +67,21 @@ Paddle.prototype.move = function (x, y) {
 
 function Computer() {
   this.paddle = new Paddle(400, 10, 50, 10);
-<<<<<<< HEAD
   this.goalzone = new Goalzone(300, 10, 200, 30);
-=======
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
 }
 
 Computer.prototype.render = function () {
   this.paddle.render();
-<<<<<<< HEAD
   this.goalzone.render();
-=======
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
 };
 
 Computer.prototype.update = function (ball) {
   var x_pos = ball.x;
   var diff = -((this.paddle.x + (this.paddle.width / 2)) - x_pos);
   if (diff < 0 && diff < -8) {
-<<<<<<< HEAD
     diff = -30;
   } else if (diff > 0 && diff > 8) {
     diff = 30;
-=======
-    diff = -20;
-  } else if (diff > 0 && diff > 8) {
-    diff = 20;
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
   }
   this.paddle.move(diff, 0);
   if (this.paddle.x < 0) {
@@ -108,39 +92,24 @@ Computer.prototype.update = function (ball) {
 };
 
 function Player() {
-<<<<<<< HEAD
   this.paddle = new Paddle(400, 590, 50, 10);
   this.goalzone = new Goalzone(300, 590, 200, 30);
-=======
-  this.paddle = new Paddle(400, 580, 50, 10);
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
 }
 
 Player.prototype.render = function () {
   this.paddle.render();
-<<<<<<< HEAD
   this.goalzone.render();
-=======
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
 };
 
 Player.prototype.update = function () {
   for (var key in keysDown) {
     var value = Number(key);
     if (value == 37) {
-<<<<<<< HEAD
       this.paddle.move(-16, 0);
     } else if (value == 39) {
       this.paddle.move(16, 0);
     } else {
       this.paddle.move(0, 0);
-=======
-        this.paddle.move(-8, 0);
-    } else if (value == 39) {
-        this.paddle.move(8, 0);
-    } else {
-        this.paddle.move(0, 0);
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
     }
   }
 };
@@ -155,11 +124,7 @@ function Ball(x, y) {
 Ball.prototype.render = function () {
   context.beginPath();
   context.arc(this.x, this.y, 5, 2 * Math.PI, false);
-<<<<<<< HEAD
   context.fillStyle = "#00ffff";
-=======
-  context.fillStyle = "#000000";
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
   context.fill();
 };
 
@@ -179,29 +144,21 @@ Ball.prototype.update = function (paddle1, paddle2) {
     this.x_speed = -this.x_speed;
   }
 
-<<<<<<< HEAD
   if ((this.y < 0 || this.y > 600) && this.x > 300 && this.x < 500) {
-=======
-  if (this.y < 0 || this.y > 600) {
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
     this.x_speed = 0;
     this.y_speed = 12;
     this.x = 400;
     this.y = 300;
-<<<<<<< HEAD
   } else if (this.y < 0 && (this.x < 300 || this.x > 500)) {
     this.y = 5;
     this.y_speed = -this.y_speed;
   } else if (this.y > 600 && (this.x < 300 || this.x > 500)) {
     this.y = 585;
     this.y_speed = -this.y_speed;
-=======
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
   }
 
   if (top_y > 300) {
     if (top_y < (paddle1.y + paddle1.height) && bottom_y > paddle1.y && top_x < (paddle1.x + paddle1.width) && bottom_x > paddle1.x) {
-<<<<<<< HEAD
       this.y_speed = -12;
       this.x_speed += (paddle1.x_speed * 2);
       this.y += this.y_speed;
@@ -211,22 +168,10 @@ Ball.prototype.update = function (paddle1, paddle2) {
       this.y_speed = 12;
       this.x_speed += (paddle2.x_speed * 2);
       this.y += this.y_speed;
-=======
-        this.y_speed = -12;
-        this.x_speed += (paddle1.x_speed * 2);
-        this.y += this.y_speed;
-    }
-  } else {
-    if (top_y < (paddle2.y + paddle2.height) && bottom_y > paddle2.y && top_x < (paddle2.x + paddle2.width) && bottom_x > paddle2.x) {
-        this.y_speed = 12;
-        this.x_speed += (paddle2.x_speed * 2);
-        this.y += this.y_speed;
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
     }
   }
 };
 
-<<<<<<< HEAD
 function Goalzone(x, y, width, height) {
   this.x = x;
   this.y = y;
@@ -240,9 +185,6 @@ Goalzone.prototype.render = function () {
 };
 
 window.onload = function () {
-=======
-window.onload = function() {
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
   document.body.appendChild(canvas);
   animate(step);
 };
