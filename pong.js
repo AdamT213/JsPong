@@ -14,11 +14,7 @@ var ball = new Ball(400, 300);
 var keysDown = {};
 
 var render = function () {
-<<<<<<< HEAD
   context.fillStyle = "#000000";
-=======
-  context.fillStyle = "#FF00FF";
->>>>>>> 7ac3a0fbd4750102ea6ed850fb083809592d2906
   context.fillRect(0, 0, width, height);
   player.render();
   computer.render();
